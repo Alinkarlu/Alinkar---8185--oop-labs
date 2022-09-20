@@ -1,34 +1,41 @@
-from inspect import CORO_SUSPENDED
-
-
 class ComEnStudent:
-
-    def __init__(self, name, course):
+    def __init__(self, name, courses):
         self.name = name
-        self.course = course
+        self.courses = courses
 
-    def __str__(self):
-        print(f"{self.name} has taken these courses {self.course}")
-
-    
-
-    
-    
 
 class CoEStudent(ComEnStudent):
+    def __init__(self,name, courses):
+        self.name = name
+        self.courses = courses
+        
 
-    def take_courses(self,course):
-        self.course = course
-        super(ComEnStudent, self).__init__(course)
+    def __str__(self):
+        return f"{self.name} has taken these courses {self.courses}"
+
+    def take_courses(self, *courses):
+        for course in courses:
+            self.courses.append(course)
 
     
 
 class DMEStudent(ComEnStudent):
-    pass
 
+    def __init__(self,name, courses):
+        self.name = name
+        self.courses = courses
 
+    def __str__(self):
+        return f"{self.name} has taken these courses {self.courses}"
 
+    def take_courses(self, *courses):
+        for course in courses:
+            self.courses.append(course)
+        
 
+    def make_content_type(self, content):
+        self.content = content
+        return f"specialized in creating content type: {self.content}"
 
 
 
@@ -41,6 +48,7 @@ if __name__ == "__main__":
     mana.make_content_type("Infographics")
     com_students.append(manee)
     com_students.append(mana)
+
     for com_student in com_students:
         com_student.take_courses("SC401206")
         print(com_student)
