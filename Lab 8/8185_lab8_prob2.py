@@ -1,11 +1,9 @@
-"""
-Class Animal is an abstract class move
-"""
+"""Class Animal is an abstract class move"""
 from abc import ABC, abstractmethod
 
 
 class Animal(ABC):
-    """Method move is an abstract method of an abstract class animal"""
+    """Method move is an abstract method of an abstract class Animal"""
     @abstractmethod
     def move(self):
         return self.move

@@ -35,7 +35,7 @@ class DMEStudent(ComEnStudent):
 
     def make_content_type(self, content):
         self.content = content
-        return f"specialized in creating content type: {self.content}"
+        print("specialized in creating content type: {}".format(self.content))
 
 
 
@@ -45,10 +45,12 @@ if __name__ == "__main__":
     mana = DMEStudent("Mana", ["EN842004"])
     manee.take_courses("EN13702", "EN11301", "EN11302")
     mana.take_courses("EN42005")
-    mana.make_content_type("Infographics")
     com_students.append(manee)
     com_students.append(mana)
 
     for com_student in com_students:
         com_student.take_courses("SC401206")
         print(com_student)
+    mana.make_content_type("Infographics")
+
+        
